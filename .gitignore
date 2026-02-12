@@ -1,0 +1,65 @@
+# ===================================================================
+# UNITY GENERATED FOLDERS (QUAN TRỌNG NHẤT - KHÔNG ĐƯỢC XÓA)
+# ===================================================================
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# ===================================================================
+# VISUAL STUDIO & IDE (Cả nhóm dùng VS thì càng phải chặn cái này)
+# ===================================================================
+# Chặn các file cấu hình Project do Unity tự sinh ra
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Chặn thư mục cấu hình riêng tư của Visual Studio (Ẩn)
+.vs/
+# Chặn thư mục của VS Code (nếu trong team có người dùng)
+.vscode/
+# Chặn thư mục của Rider (nếu có người dùng)
+.idea/
+
+# ===================================================================
+# OS GENERATED (File rác của Windows và Mac)
+# ===================================================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ===================================================================
+# BUILD FILES (File game đã đóng gói, không đẩy lên Git)
+# ===================================================================
+*.apk
+*.aab
+*.unitypackage
+*.app
+*.exe
+
+# ===================================================================
+# OTHER GARBAGE
+# ===================================================================
+# Crash dumps
+sysinfo.txt
+
+# Exceptions (Ngoại lệ: Giữ lại file .meta)
+!*.meta
