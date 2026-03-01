@@ -63,3 +63,7 @@ sysinfo.txt
 
 # Exceptions (Ngoại lệ: Giữ lại file .meta)
 !*.meta
+
+# Firebase config
+**/google-services.json
+**/GoogleService-Info.plist
