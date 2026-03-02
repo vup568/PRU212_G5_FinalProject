@@ -1,17 +1,18 @@
 # ===================================================================
 # UNITY GENERATED FOLDERS (QUAN TRỌNG NHẤT - KHÔNG ĐƯỢC XÓA)
 # ===================================================================
-[Ll]ibrary/
-[Tt]emp/
-[Oo]bj/
-[Bb]uild/
-[Bb]uilds/
-[Ll]ogs/
-[Uu]ser[Ss]ettings/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
 
 # ===================================================================
-# VISUAL STUDIO & IDE
+# VISUAL STUDIO & IDE (Cả nhóm dùng VS thì càng phải chặn cái này)
 # ===================================================================
+# Chặn các file cấu hình Project do Unity tự sinh ra
 *.csproj
 *.unityproj
 *.sln
@@ -27,12 +28,15 @@
 *.opendb
 *.VC.db
 
+# Chặn thư mục cấu hình riêng tư của Visual Studio (Ẩn)
 .vs/
+# Chặn thư mục của VS Code (nếu trong team có người dùng)
 .vscode/
+# Chặn thư mục của Rider (nếu có người dùng)
 .idea/
 
 # ===================================================================
-# OS GENERATED
+# OS GENERATED (File rác của Windows và Mac)
 # ===================================================================
 .DS_Store
 .DS_Store?
@@ -43,7 +47,7 @@ ehthumbs.db
 Thumbs.db
 
 # ===================================================================
-# BUILD FILES (KHÔNG ĐƯỢC ĐẨY LÊN)
+# BUILD FILES (File game đã đóng gói, không đẩy lên Git)
 # ===================================================================
 *.apk
 *.aab
@@ -52,17 +56,10 @@ Thumbs.db
 *.exe
 
 # ===================================================================
-# FIREBASE / FILE NẶNG (TRÁNH LỖI >100MB)
+# OTHER GARBAGE
 # ===================================================================
-Assets/Firebase/Plugins/
-*.bundle
-*.so
-*.dll
-
-# ===================================================================
-# OTHER
-# ===================================================================
+# Crash dumps
 sysinfo.txt
 
-# Giữ lại file .meta (Unity bắt buộc phải có)
+# Exceptions (Ngoại lệ: Giữ lại file .meta)
 !*.meta
