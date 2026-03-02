@@ -71,3 +71,7 @@ Assets/StreamingAssets/google-services-desktop.json
 # Firebase config files (each dev has their own project)
 **/google-services.json
 **/GoogleService-Info.plist
+
+# Firebase native desktop binaries (too large for GitHub)
+Assets/Firebase/Plugins/x86_64/*.bundle
+Assets/Firebase/Plugins/x86_64/*.so
