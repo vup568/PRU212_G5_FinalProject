@@ -64,6 +64,10 @@ sysinfo.txt
 # Exceptions (Ngoại lệ: Giữ lại file .meta)
 !*.meta
 
-# Firebase config
+Assets/StreamingAssets/google-services-desktop.json
+**/google-services*.json
+**/google-services-desktop.json
+
+# Firebase config files (each dev has their own project)
 **/google-services.json
 **/GoogleService-Info.plist
