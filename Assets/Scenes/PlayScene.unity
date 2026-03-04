@@ -1310,7 +1310,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsGrid: 1
-  PrototypeCell: {fileID: 615633609914014212, guid: 4aef1e16770bddd41b8abe583b3a5ef1, type: 3}
+  PrototypeCell: {fileID: 3174956536324430499, guid: 319fce6338383bb49a427ee0ee384774, type: 3}
   SelfInitialize: 1
   Direction: 0
   _segments: 5
@@ -1483,7 +1483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 377382694}
-  - component: {fileID: 377382693}
+  - component: {fileID: 377382695}
   m_Layer: 0
   m_Name: InventoryManager
   m_TagString: Untagged
@@ -1491,21 +1491,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &377382693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 377382692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae32b0a2845c5f046bff6a2d1d0d76e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _recyclableScrollRect: {fileID: 48218832}
-  _dataLength: 10
-  inventoryGameObject: {fileID: 48218831}
 --- !u!4 &377382694
 Transform:
   m_ObjectHideFlags: 0
@@ -1521,6 +1506,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &377382695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377382692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c0fe7af99d54b14aa6eac1e88a88711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _recyclableScrollRect: {fileID: 48218832}
+  _dataLength: 10
+  inventoryGameObject: {fileID: 48218831}
 --- !u!1 &493008321
 GameObject:
   m_ObjectHideFlags: 0
