@@ -68,6 +68,8 @@ public class TileMapManager : MonoBehaviour
         
     }
 
+
+    //firebase is non relationship database
     public void WriteAllTileMapToFirebase()
     {
         List<TilemapDetail> tilemaps = new List<TilemapDetail>();
@@ -85,7 +87,9 @@ public class TileMapManager : MonoBehaviour
 
         Debug.Log(map.ToString());
 
-        databaseManagement.WriteDatabase(user.UserId + "/Map", map.ToString());
+        LoadDataManager.userInGame.MapInGame = map;
+
+        databaseManagement.WriteDatabase("User/" + LoadDataManager.firebaseUser.UserId, LoadDataManager.userInGame.ToString());
     }
 
     public void LoadMapForUser()

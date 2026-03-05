@@ -34,6 +34,10 @@ public class FirebaseLogin : MonoBehaviour
     public GameObject loginForm;
     public GameObject registerForm;
 
+    //Upload user's data to Firebase
+    public FirebaseDatabaseManagement databaseManagement { get; set; }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,8 @@ public class FirebaseLogin : MonoBehaviour
 
         buttonMovetoRegister.onClick.AddListener(SwitchForm);
         buttonMovetoLogin.onClick.AddListener(SwitchForm);
+
+        databaseManagement = GetComponent<FirebaseDatabaseManagement>();
     }
 
     public void RegisterAccountWithFirebase()
@@ -62,14 +68,28 @@ public class FirebaseLogin : MonoBehaviour
             if (task.IsFaulted)
             {
                 Debug.Log("Register is failed");
+                return;
                 
             }
             if (task.IsCompleted)
             {
+
                 Debug.Log("Register is Complete!");
-               
+
+                Map mapInGame = new Map();
+                Users userInGame = new Users("", 100, 50, mapInGame);
+
+                FirebaseUser firebaseUser = task.Result.User;
+
+
+                databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
+
+                SceneManager.LoadScene("FakeLoading");
+
+                
+
             }
-        
+
         });
     }
 
@@ -96,7 +116,7 @@ public class FirebaseLogin : MonoBehaviour
                 FirebaseUser user = task.Result.User;
 
                 //change scene after login successfull
-                SceneManager.LoadScene("PlayScene");
+                SceneManager.LoadScene("FakeLoading");
             }
         });
     }

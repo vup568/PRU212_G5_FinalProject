@@ -9,6 +9,8 @@ public class FirebaseDatabaseManagement : MonoBehaviour
 {
     private DatabaseReference reference;
 
+
+
     //this function run before game initialize
     private void Awake()
     {
@@ -18,9 +20,9 @@ public class FirebaseDatabaseManagement : MonoBehaviour
 
     
 
-    public void WriteDatabase(string id, string message)
+    public void WriteDatabase(string path, string message)
     {
-        reference.Child("Users").Child(id).SetValueAsync(message).ContinueWithOnMainThread(task =>
+        reference.Child(path).SetValueAsync(message).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {
