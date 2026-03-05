@@ -9,11 +9,11 @@ public class Map
     {
     }
 
-    public List<TilemapDetail> map {  get;  set; }
+    public List<TilemapDetail> listTilemapDetail {  get;  set; }
 
-    public Map(List<TilemapDetail> map)
+    public Map(List<TilemapDetail> listTilemapDetail)
     {
-        this.map = map;
+        this.listTilemapDetail = listTilemapDetail;
     }
 
     public override string ToString()
@@ -23,7 +23,7 @@ public class Map
 
     public int GetLength()
     {
-        return map.Count;
+        return listTilemapDetail.Count;
     }
 
     // Start is called before the first frame update

@@ -16150,6 +16150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tm_Ground: {fileID: 1865300031}
+  tm_Grass: {fileID: 493008324}
+  tm_Forest: {fileID: 41701131}
+  tb_Forest: {fileID: 11400000, guid: e698c9ad205b0b7459aa706c406b1b4e, type: 2}
 --- !u!4 &1670138790
 Transform:
   m_ObjectHideFlags: 0

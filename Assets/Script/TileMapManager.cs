@@ -1,17 +1,28 @@
-﻿using Firebase.Auth;
+﻿using Firebase;
+using Firebase.Auth;
+using Firebase.Database;
+using Firebase.Extensions;
+using Newtonsoft.Json;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class TileMapManager : MonoBehaviour
 {
     public Tilemap tm_Ground;
+    public Tilemap tm_Grass;
+    public Tilemap tm_Forest;
+
+    public TileBase tb_Forest;
 
     private Map map;
 
     private FirebaseDatabaseManagement databaseManagement;
     private FirebaseUser user;
+
+    private  DatabaseReference reference;
 
 
 
@@ -43,7 +54,12 @@ public class TileMapManager : MonoBehaviour
         }
 
         map = new Map();
-        WriteAllTileMapToFirebase();
+        //WriteAllTileMapToFirebase();
+
+        FirebaseApp app = FirebaseApp.DefaultInstance;
+        reference = FirebaseDatabase.DefaultInstance.RootReference;
+        
+        LoadMapForUser();
     }
 
     // Update is called once per frame
@@ -70,5 +86,60 @@ public class TileMapManager : MonoBehaviour
         Debug.Log(map.ToString());
 
         databaseManagement.WriteDatabase(user.UserId + "/Map", map.ToString());
+    }
+
+    public void LoadMapForUser()
+    {
+        reference.Child("Users").Child(user.UserId + "/Map").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCanceled)
+            {
+                Debug.Log("load map is canceled");
+                return;
+            }
+            else if (task.IsFaulted)
+            {
+                Debug.Log("load map is failed");
+
+            }
+            else if(task.IsCompleted)
+            {
+                //Deserialize map from json to tileMap
+                DataSnapshot snapshot = task.Result;
+                map = JsonConvert.DeserializeObject<Map>(snapshot.Value.ToString());
+                Debug.Log("load map: " + map.ToString());
+                MapToUI(map);
+            }
+        });
+    }
+
+    public void TilemapDetailToTilebase(TilemapDetail tilemapdetail)
+    {
+        Vector3Int cellPos = new Vector3Int(tilemapdetail.x, tilemapdetail.y, 0);
+
+        if(tilemapdetail.tilemapState == TilemapState.Ground)
+        {
+            tm_Grass.SetTile(cellPos, null);
+            tm_Forest.SetTile(cellPos, null);
+
+        }
+        else if(tilemapdetail.tilemapState == TilemapState.Grass)
+        {
+            tm_Forest.SetTile(cellPos, null);
+        }
+        else if(tilemapdetail.tilemapState == TilemapState.Forest)
+        {
+            tm_Grass.SetTile(cellPos, null);
+            tm_Forest.SetTile(cellPos, tb_Forest);
+        }
+    }
+
+    public void MapToUI(Map map)
+    {
+        Debug.Log("Load map to UI");
+        for(int i = 0; i < map.GetLength(); i++)
+        {
+            TilemapDetailToTilebase(map.listTilemapDetail[i]);
+        }
     }
 }
