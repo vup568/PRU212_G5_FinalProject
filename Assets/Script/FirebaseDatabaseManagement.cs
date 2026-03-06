@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase;
 using Firebase.Extensions;
+using System.Threading.Tasks;
 
 public class FirebaseDatabaseManagement : MonoBehaviour
 {
@@ -20,9 +21,9 @@ public class FirebaseDatabaseManagement : MonoBehaviour
 
     
 
-    public void WriteDatabase(string id, string message)
+    public Task WriteDatabase(string path, string message)
     {
-        reference.Child(id).SetValueAsync(message).ContinueWithOnMainThread(task =>
+       return  reference.Child(path).SetRawJsonValueAsync(message).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {

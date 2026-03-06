@@ -35,7 +35,7 @@ public class FirebaseLogin : MonoBehaviour
     public GameObject registerForm;
 
     //Upload user's data to Firebase
-    public FirebaseDatabaseManagement databaseManagement { get; set; }
+    public FirebaseDatabaseManagement databaseManagement;
 
 
     // Start is called before the first frame update
@@ -74,17 +74,19 @@ public class FirebaseLogin : MonoBehaviour
             if (task.IsCompleted)
             {
 
-                Debug.Log("Register is Complete!");
+                Debug.Log("Register is successfully!");
 
                 Map mapInGame = new Map();
+
                 Users userInGame = new Users("", 100, 50, mapInGame);
 
                 FirebaseUser firebaseUser = task.Result.User;
 
+                Debug.Log("Firebase user: " +  firebaseUser);
 
                 databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
 
-                //SceneManager.LoadScene("FakeLoading");
+               SceneManager.LoadScene("FakeLoading");
 
                 
 

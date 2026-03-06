@@ -51,7 +51,7 @@ public class TileMapManager : MonoBehaviour
         }
 
         map = new Map();
-       // WriteAllTileMapToFirebase();
+        //WriteAllTileMapToFirebase();
 
         FirebaseApp app = FirebaseApp.DefaultInstance;
         reference = FirebaseDatabase.DefaultInstance.RootReference;
@@ -66,12 +66,44 @@ public class TileMapManager : MonoBehaviour
     }
 
 
-    //firebase is non relationship database
+    public void LoadMapForUser()
+    {
+        // Đã sửa "Map" thành "MapInGame" để khớp với dữ liệu User
+        reference.Child("Users").Child(user.UserId).Child("MapInGame").GetValueAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsCompleted && task.Result.Exists)
+            {
+                DataSnapshot snapshot = task.Result;
+                string jsonMap = snapshot.GetRawJsonValue();
+
+                map = JsonConvert.DeserializeObject<Map>(jsonMap);
+
+                // Nếu map đã có dữ liệu tọa độ (Count > 0)
+                if (map != null && map.listTilemapDetail != null && map.listTilemapDetail.Count > 0)
+                {
+                    Debug.Log("Đã tải Map cũ thành công từ Firebase!");
+                    MapToUI(map);
+                }
+                else
+                {
+                    // NẾU MAP RỖNG -> Ép hệ thống tạo map mới và lưu lên Firebase ngay lập tức
+                    Debug.Log("Map rỗng, đang tiến hành tạo Map mặc định...");
+                    WriteAllTileMapToFirebase();
+                }
+            }
+            else
+            {
+                Debug.Log("Không tìm thấy Map trên Firebase, tạo Map mặc định...");
+                WriteAllTileMapToFirebase();
+            }
+        });
+    }
+
     public void WriteAllTileMapToFirebase()
     {
-        //this is default tilemap
         List<TilemapDetail> tilemaps = new List<TilemapDetail>();
 
+        // Lấy tọa độ từ Tilemap Ground trong Unity
         for (int x = tm_Ground.cellBounds.min.x; x < tm_Ground.cellBounds.max.x; x++)
         {
             for (int y = tm_Ground.cellBounds.min.y; y < tm_Ground.cellBounds.max.y; y++)
@@ -83,39 +115,15 @@ public class TileMapManager : MonoBehaviour
 
         map = new Map(tilemaps);
 
-        Debug.Log(map.ToString());
+        // Lưu dữ liệu jsonMap vừa tạo lên thẳng Firebase
+        string jsonMap = map.ToString();
 
-        LoadDataManager.userInGame.MapInGame = map;
-
-        databaseManagement.WriteDatabase("Users/" + user.UserId + "/Map", map.ToString());
-    }
-
-    public void LoadMapForUser()
-    {
-        reference.Child("Users").Child(user.UserId + "/Map").GetValueAsync().ContinueWithOnMainThread(task =>
+        // CHÚ Ý: Đã sửa đường dẫn thành MapInGame
+        databaseManagement.WriteDatabase("Users/" + user.UserId + "/MapInGame", jsonMap).ContinueWithOnMainThread(task =>
         {
-            if (task.IsCanceled)
-            {
-                Debug.Log("load map is canceled");
-                return;
-            }
-            else if (task.IsFaulted)
-            {
-                Debug.Log("load map is failed");
-
-            }
-            else if (task.IsCompleted)
-            {
-                //Deserialize map from json to tileMap
-                DataSnapshot snapshot = task.Result;
-
-                Debug.Log(snapshot.Value.ToString());
-
-                map = JsonConvert.DeserializeObject<Map>(snapshot.Value.ToString());
-
-                Debug.Log("load map: " + map.ToString());
-                MapToUI(map);
-            }
+            Debug.Log("Đã lưu tọa độ Map lên Firebase thành công!");
+            // Sau khi lưu xong thì mới vẽ ra màn hình
+            MapToUI(map);
         });
     }
 
@@ -161,7 +169,7 @@ public class TileMapManager : MonoBehaviour
             {
                 map.listTilemapDetail[i].tilemapState = state;
 
-                databaseManagement.WriteDatabase("Users/" + user.UserId + "/Map", map.ToString());
+                databaseManagement.WriteDatabase("Users/" + user.UserId + "/MapInGame", map.ToString());
 
                 Debug.Log("Save to Firebase successful");
             }

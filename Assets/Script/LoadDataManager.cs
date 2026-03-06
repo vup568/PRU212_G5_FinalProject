@@ -45,12 +45,15 @@ public class LoadDataManager : MonoBehaviour
             if (task.IsCompleted)
             {
                 DataSnapshot snapshot = task.Result;
-                userInGame = JsonConvert.DeserializeObject<Users>(snapshot.Value.ToString());
-                Debug.Log("User in game"+ userInGame.ToString());
+
+                string jsonString = snapshot.GetRawJsonValue();
+
+                userInGame = JsonConvert.DeserializeObject<Users>(jsonString);
+                Debug.Log("User in game: " + jsonString); 
             }
             else
             {
-                Debug.Log("Wrote data fail" + task.Exception);
+                Debug.Log("Load data fail" + task.Exception);
             }
         });
     }

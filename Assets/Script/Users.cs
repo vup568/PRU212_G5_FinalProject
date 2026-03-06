@@ -18,6 +18,7 @@ public class Users
     public Map MapInGame { get; set; }
 
 
+
     public Users(string name, int gold, int diamond, Map mapInGame)
     {
         Name = name;

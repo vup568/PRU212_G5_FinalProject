@@ -9,6 +9,7 @@ public class Map
 
     public Map()
     {
+        listTilemapDetail = new List<TilemapDetail>();
     }
 
 
