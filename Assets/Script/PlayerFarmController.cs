@@ -17,11 +17,14 @@ public class PlayerFarmController : MonoBehaviour
     private RecyclableInventoryManager recyclableInventoryManager;
 
     public TileMapManager tileMapManager;
-    
+
+    public GameObject usernameWizard;
+
     // Start is called before the first frame update
     void Start()
     {
         recyclableInventoryManager = GameObject.Find("InventoryManager").GetComponent<RecyclableInventoryManager>();
+    
     }
 
     // Update is called once per frame
@@ -79,6 +82,8 @@ public class PlayerFarmController : MonoBehaviour
 
                 tm_Forest.SetTile(cellPos, null);
 
+
+
                 InvenItems itemFlower = new InvenItems();
                 itemFlower.name = "Rose Flower";
                 itemFlower.description = "This rose is very beautiful";
@@ -86,6 +91,9 @@ public class PlayerFarmController : MonoBehaviour
                 Debug.Log(itemFlower.ToString());
 
                 recyclableInventoryManager.AddInventoryItem(itemFlower);
+
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
+
             }
         }
     }

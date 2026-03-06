@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Firebase.Auth;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json;
 
 public class FirebaseLogin : MonoBehaviour
 {
@@ -84,7 +85,8 @@ public class FirebaseLogin : MonoBehaviour
 
                 Debug.Log("Firebase user: " +  firebaseUser);
 
-                databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
+                string jsonData = JsonConvert.SerializeObject(userInGame);
+                databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, jsonData);
 
                SceneManager.LoadScene("FakeLoading");
 
