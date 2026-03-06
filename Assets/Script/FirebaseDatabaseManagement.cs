@@ -20,9 +20,9 @@ public class FirebaseDatabaseManagement : MonoBehaviour
 
     
 
-    public void WriteDatabase(string path, string message)
+    public void WriteDatabase(string id, string message)
     {
-        reference.Child(path).SetValueAsync(message).ContinueWithOnMainThread(task =>
+        reference.Child(id).SetValueAsync(message).ContinueWithOnMainThread(task =>
         {
             if (task.IsCompleted)
             {

@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class Map 
 {
+    public List<TilemapDetail> listTilemapDetail { get; set; }
+
     public Map()
     {
     }
 
-    public List<TilemapDetail> listTilemapDetail {  get;  set; }
 
     public Map(List<TilemapDetail> listTilemapDetail)
     {
@@ -23,7 +24,7 @@ public class Map
 
     public int GetLength()
     {
-        return listTilemapDetail.Count;
+        return listTilemapDetail?.Count ?? 0;
     }
 
     // Start is called before the first frame update

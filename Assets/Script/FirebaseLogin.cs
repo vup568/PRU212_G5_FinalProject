@@ -84,7 +84,7 @@ public class FirebaseLogin : MonoBehaviour
 
                 databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, userInGame.ToString());
 
-                SceneManager.LoadScene("FakeLoading");
+                //SceneManager.LoadScene("FakeLoading");
 
                 
 
@@ -108,6 +108,7 @@ public class FirebaseLogin : MonoBehaviour
             if (task.IsFaulted)
             {
                 Debug.Log("Login is failed");
+                return;
 
             }
             if (task.IsCompleted)

@@ -16,7 +16,7 @@ public class PlayerFarmController : MonoBehaviour
 
     private RecyclableInventoryManager recyclableInventoryManager;
 
-       
+    public TileMapManager tileMapManager;
     
     // Start is called before the first frame update
     void Start()
@@ -29,8 +29,11 @@ public class PlayerFarmController : MonoBehaviour
     {
         HandleFarmAction();
     }
+
+    
     public void HandleFarmAction()
     {
+        //Digging
         if (Input.GetKeyDown(KeyCode.C))
         {
             Debug.Log("Digging");
@@ -41,11 +44,14 @@ public class PlayerFarmController : MonoBehaviour
             if(currentTb == tb_Grass)
             {
                 tm_Grass.SetTile(cellPos, null);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
             }
             
 
         }
-        if (Input.GetKeyDown(KeyCode.B))
+
+        //Plant tree
+        if (Input.GetKeyDown(KeyCode.V))
         {
             Vector3Int cellPos = tm_Ground.WorldToCell(transform.position); //take precise location of player with integer location
             Debug.Log("Cell position: " + cellPos);
@@ -54,9 +60,12 @@ public class PlayerFarmController : MonoBehaviour
             if (currentTb == null)
             {
                 tm_Forest.SetTile(cellPos, tb_Forest);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Forest);
+
             }
         }
 
+        //take tree
         if(Input.GetKeyDown(KeyCode.X))
         {
             Vector3Int cellPos = tm_Ground.WorldToCell(transform.position); //take precise location of player with integer location
