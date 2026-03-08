@@ -24,7 +24,7 @@ public class PlayerFarmController : MonoBehaviour
     void Start()
     {
         recyclableInventoryManager = GameObject.Find("InventoryManager").GetComponent<RecyclableInventoryManager>();
-    
+
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class PlayerFarmController : MonoBehaviour
         HandleFarmAction();
     }
 
-    
+
     public void HandleFarmAction()
     {
         //Digging
@@ -44,12 +44,13 @@ public class PlayerFarmController : MonoBehaviour
             Debug.Log("Cell position: " + cellPos);
 
             TileBase currentTb = tm_Grass.GetTile(cellPos);
-            if(currentTb == tb_Grass)
+            if (currentTb == tb_Grass)
             {
                 tm_Grass.SetTile(cellPos, null);
+                FindObjectOfType<AudioManager>().PlayDigSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
+
             }
-            
 
         }
 
@@ -69,14 +70,14 @@ public class PlayerFarmController : MonoBehaviour
         }
 
         //take tree
-        if(Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             Vector3Int cellPos = tm_Ground.WorldToCell(transform.position); //take precise location of player with integer location
             Debug.Log("Cell position: " + cellPos);
 
             TileBase currentTb = tm_Forest.GetTile(cellPos);
 
-            if(currentTb != null)
+            if (currentTb != null)
             {
                 tm_Grass.SetTile(cellPos, tb_Grass);
 
@@ -91,7 +92,7 @@ public class PlayerFarmController : MonoBehaviour
                 Debug.Log(itemFlower.ToString());
 
                 recyclableInventoryManager.AddInventoryItem(itemFlower);
-
+                FindObjectOfType<AudioManager>().PlayCollectSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
 
             }
