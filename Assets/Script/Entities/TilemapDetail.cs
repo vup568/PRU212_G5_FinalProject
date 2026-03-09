@@ -9,6 +9,8 @@ public enum TilemapState
     Ground,
     Grass,
     Forest,
+    Corn,
+    Cherry
 }
 
 

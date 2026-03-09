@@ -14,6 +14,10 @@ public class PlayerFarmController : MonoBehaviour
     public TileBase tb_Grass;
     public TileBase tb_Forest;
 
+    public List<TileBase> listTilebase_Corn;
+    //public List<TileBase> listTilebase_CanHarvest;
+    //can harvest la co the thu hoach
+
     private RecyclableInventoryManager recyclableInventoryManager;
 
     public TileMapManager tileMapManager;
@@ -63,8 +67,9 @@ public class PlayerFarmController : MonoBehaviour
             TileBase currentTb = tm_Grass.GetTile(cellPos);
             if (currentTb == null)
             {
-                tm_Forest.SetTile(cellPos, tb_Forest);
-                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Forest);
+                //tm_Forest.SetTile(cellPos, tb_Forest);
+                StartCoroutine(GrowPlant(cellPos, tm_Forest, listTilebase_Corn));
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Corn);
 
             }
         }
@@ -77,25 +82,36 @@ public class PlayerFarmController : MonoBehaviour
 
             TileBase currentTb = tm_Forest.GetTile(cellPos);
 
-            if (currentTb != null)
+            if (currentTb == listTilebase_Corn[4])
             {
-                tm_Grass.SetTile(cellPos, tb_Grass);
+                tm_Grass.SetTile(cellPos, null);
 
                 tm_Forest.SetTile(cellPos, null);
 
 
 
-                InvenItems itemFlower = new InvenItems();
-                itemFlower.name = "Rose Flower";
-                itemFlower.description = "This rose is very beautiful";
+                InvenItems itemCorn = new InvenItems();
+                itemCorn.name = "Corn";
+                itemCorn.description = "Fresh Corn";
 
-                Debug.Log(itemFlower.ToString());
+                Debug.Log(itemCorn.ToString());
 
-                recyclableInventoryManager.AddInventoryItem(itemFlower);
+                recyclableInventoryManager.AddInventoryItem(itemCorn);
                 FindObjectOfType<AudioManager>().PlayCollectSound();
-                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
 
             }
+        }
+    }
+
+    IEnumerator GrowPlant(Vector3Int cellPos, Tilemap tilemap, List<TileBase> listTilebase)
+    {
+        int currentState = 0;
+        while(currentState < listTilebase.Count)
+        {
+            tilemap.SetTile(cellPos, listTilebase[currentState]);
+            yield return new WaitForSeconds(5);
+            currentState++;
         }
     }
 }
