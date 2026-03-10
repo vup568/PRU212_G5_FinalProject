@@ -3,7 +3,16 @@ guid: ef15ff2f68b20ad47a4785e7b37959ce
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - tm_Ground: {instanceID: 0}
+  - tm_Grass: {instanceID: 0}
+  - tm_Forest: {instanceID: 0}
+  - tb_Ground: {instanceID: 0}
+  - tb_Grass: {instanceID: 0}
+  - tb_Forest: {instanceID: 0}
+  - cornInventoryIcon: {fileID: 21300000, guid: 21a396fe804028b4a8e73928dd9cf105, type: 3}
+  - tileMapManager: {instanceID: 0}
+  - usernameWizard: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

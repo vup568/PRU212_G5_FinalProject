@@ -18,6 +18,8 @@ public class PlayerFarmController : MonoBehaviour
     //public List<TileBase> listTilebase_CanHarvest;
     //can harvest la co the thu hoach
 
+    [SerializeField] private Sprite cornInventoryIcon;
+
     private RecyclableInventoryManager recyclableInventoryManager;
 
     public TileMapManager tileMapManager;
@@ -90,9 +92,10 @@ public class PlayerFarmController : MonoBehaviour
 
 
 
-                InvenItems itemCorn = new InvenItems();
-                itemCorn.name = "Corn";
-                itemCorn.description = "Fresh Corn";
+                //InvenItems itemCorn = new InvenItems();
+                //itemCorn.name = "Corn";
+                //itemCorn.description = "Fresh Corn";
+                InvenItems itemCorn = new InvenItems("Corn", "Fresh Corn", cornInventoryIcon);
 
                 Debug.Log(itemCorn.ToString());
 

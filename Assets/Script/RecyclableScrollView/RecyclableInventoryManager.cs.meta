@@ -3,7 +3,10 @@ guid: 2c0fe7af99d54b14aa6eac1e88a88711
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _recyclableScrollRect: {instanceID: 0}
+  - inventoryGameObject: {instanceID: 0}
+  - demoIcon: {fileID: 21300000, guid: 21a396fe804028b4a8e73928dd9cf105, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

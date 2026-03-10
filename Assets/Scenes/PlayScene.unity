@@ -1304,6 +1304,7 @@ MonoBehaviour:
   _recyclableScrollRect: {fileID: 48218832}
   _dataLength: 10
   inventoryGameObject: {fileID: 48218831}
+  demoIcon: {fileID: 0}
 --- !u!1 &479581085
 GameObject:
   m_ObjectHideFlags: 0
@@ -15957,6 +15958,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7edd7746be79fe4439b157582e23456d, type: 2}
   - {fileID: 11400000, guid: 2edca96743351124781ce22322ba8812, type: 2}
   - {fileID: 11400000, guid: 714e4a7a42158e349997c4553f3c685a, type: 2}
+  cornInventoryIcon: {fileID: 21300000, guid: 21a396fe804028b4a8e73928dd9cf105, type: 3}
   tileMapManager: {fileID: 1670138789}
   usernameWizard: {fileID: 0}
 --- !u!61 &528684322

@@ -8,6 +8,7 @@ public class CellItemData : MonoBehaviour, ICell
 {
     public Text nameLabel;
     public Text desLabel;
+    public Image iconImage;
 
     //Model
     private InvenItems _contactInfo;
@@ -20,6 +21,7 @@ public class CellItemData : MonoBehaviour, ICell
 
         nameLabel.text = invenItems.name;
         desLabel.text = invenItems.description;
-    }
 
+        iconImage.sprite = invenItems.icon; // hiển thị ảnh
+    }
 }

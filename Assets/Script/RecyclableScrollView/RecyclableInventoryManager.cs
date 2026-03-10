@@ -13,7 +13,7 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
 
     public GameObject inventoryGameObject;
 
-
+    public Sprite demoIcon;
 
     private List<InvenItems> _invenItems = new List<InvenItems>();
 
@@ -43,6 +43,9 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
             invenItem.name = "Name_ " + i.ToString();
             invenItem.description = "Des_ " + i.ToString();
 
+            invenItem.icon = demoIcon;
+            //Debug.Log("xDD: " + invenItem.icon.texture.name);
+
             listItem.Add(invenItem);
         }
         SetListItem(listItem);
@@ -58,8 +61,8 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
     {
         if(Input.GetKeyDown(KeyCode.L))
         {
-            InvenItems invenItemDemo = new InvenItems("Ca", "Ca");
-            _invenItems.Add(invenItemDemo);
+            InvenItems invenItemDemo = new InvenItems("Ca", "Ca", demoIcon);
+            _invenItems.Insert(0, invenItemDemo);
             _recyclableScrollRect.ReloadData();
         }
 
@@ -78,7 +81,7 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
 
     public void AddInventoryItem(InvenItems item)
     {
-        _invenItems.Add(item);
+        _invenItems.Insert(0, item);
         Debug.Log("Add Item successfully");
         _recyclableScrollRect.ReloadData();
     }
