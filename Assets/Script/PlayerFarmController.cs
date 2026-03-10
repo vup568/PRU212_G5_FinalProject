@@ -95,7 +95,7 @@ public class PlayerFarmController : MonoBehaviour
                 //InvenItems itemCorn = new InvenItems();
                 //itemCorn.name = "Corn";
                 //itemCorn.description = "Fresh Corn";
-                InvenItems itemCorn = new InvenItems("Corn", "Fresh Corn", cornInventoryIcon);
+                InvenItems itemCorn = new InvenItems("Corn", "Fresh Corn", cornInventoryIcon, 10, true);
 
                 Debug.Log(itemCorn.ToString());
 
