@@ -13,6 +13,7 @@ public class UsernameWizard : MonoBehaviour
 
     public Text gold;
     public Text diamond;
+    public Text levelText;
 
     private FirebaseDatabaseManagement databaseManagement;
 
@@ -25,6 +26,7 @@ public class UsernameWizard : MonoBehaviour
         usernameWizard.SetActive(false);
 
         LoadDataManager.OnUserDataLoaded += CheckAndDisplayUI;
+        LevelManager.OnLevelUp += OnLevelUp;
 
         if (LoadDataManager.userInGame != null)
         {
@@ -35,6 +37,7 @@ public class UsernameWizard : MonoBehaviour
     private void OnDestroy()
     {
         LoadDataManager.OnUserDataLoaded -= CheckAndDisplayUI;
+        LevelManager.OnLevelUp -= OnLevelUp;
     }
 
     private void CheckAndDisplayUI()
@@ -55,6 +58,25 @@ public class UsernameWizard : MonoBehaviour
         username.text = LoadDataManager.userInGame.Name;
         gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
         diamond.text = "Diamond: " + LoadDataManager.userInGame.Diamond.ToString();
+
+        // Hiển thị level
+        if (levelText != null)
+        {
+            int level = LoadDataManager.userInGame.Level > 0 ? LoadDataManager.userInGame.Level : 1;
+            levelText.text = "Level: " + level;
+        }
+    }
+
+    /// <summary>
+    /// Callback khi player lên level - cập nhật UI.
+    /// </summary>
+    private void OnLevelUp(int newLevel)
+    {
+        if (levelText != null)
+        {
+            levelText.text = "Level: " + newLevel;
+        }
+        Debug.Log($"[UsernameWizard] UI cập nhật Level: {newLevel}");
     }
 
     public void SetNewUsername()

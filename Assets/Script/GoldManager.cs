@@ -60,6 +60,12 @@ public class GoldManager : MonoBehaviour
         {
             wizard.gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
         }
+
+        // Kiểm tra level up
+        if (LevelManager.Instance != null)
+        {
+            LevelManager.Instance.CheckLevelUp();
+        }
     }
 
     public int GetCurrentGold()

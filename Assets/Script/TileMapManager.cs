@@ -1,4 +1,4 @@
-﻿using Firebase;
+using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
@@ -18,6 +18,7 @@ public class TileMapManager : MonoBehaviour
 
     public TileBase tb_Forest;
     public TileBase tb_Corn;
+    public TileBase tb_Flower;
 
     private Map map;
 
@@ -152,6 +153,11 @@ public class TileMapManager : MonoBehaviour
         {
             tm_Grass.SetTile(cellPos, null);
             tm_Forest.SetTile(cellPos, tb_Corn);
+        }
+        else if(tilemapdetail.tilemapState == TilemapState.Flower)
+        {
+            tm_Grass.SetTile(cellPos, null);
+            tm_Forest.SetTile(cellPos, tb_Flower);
         }
     }
 

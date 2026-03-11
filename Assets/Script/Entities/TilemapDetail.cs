@@ -10,7 +10,8 @@ public enum TilemapState
     Grass,
     Forest,
     Corn,
-    Cherry
+    Cherry,
+    Flower
 }
 
 

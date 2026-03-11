@@ -7,6 +7,7 @@ public class Users
 {
     public Users()
     {
+        Level = 1;
     }
 
     public string Name { get; set; }
@@ -14,7 +15,9 @@ public class Users
     public int Gold { get; set; }
 
     public int Diamond { get; set; }
-  
+
+    public int Level { get; set; }
+
     public Map MapInGame { get; set; }
 
 
@@ -24,6 +27,7 @@ public class Users
         Name = name;
         Gold = gold;
         Diamond = diamond;
+        Level = 1;
         MapInGame = mapInGame;
     }
 
