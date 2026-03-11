@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3629d32c2590a68408314dfd72dde5ad
+guid: dac6bbc4fd3b6904e9b1d24956c319ff
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,12 +97,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic_Plants_0
+      name: House_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 17
-        width: 12
+        x: 4
+        y: 23
+        width: 72
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37c44d7d78dfe2e4f8ffb8b507bd1c08
+      internalID: -546601629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 91
+        width: 14
         height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,102 +132,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb6d5e84f7f34649921c6c3439dce77
-      internalID: -307273129
+      spriteID: eeed93d386c466542a6ae97a8c0c4a56
+      internalID: -1912913092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_1
+      name: House_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 13
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a47f1ce9dcdaf7a4389191c29fb5a5b1
-      internalID: 1606259769
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_2
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 17
-        width: 15
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c07b56f25f8181e46936f7870398eac8
-      internalID: 656813783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_3
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 17
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 35c617ae00886a246a611ed45fa52830
-      internalID: -1467046660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_4
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 17
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09921aeef97944243995158229c515cb
-      internalID: 147284162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_5
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 17
+        x: 97
+        y: 91
         width: 14
         height: 14
       alignment: 0
@@ -216,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdbac17ce1f6f2e4d915ef5ad2070491
-      internalID: -1580224643
+      spriteID: 3387d13f434057f409ba2093bd002b6b
+      internalID: 1236691888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_6
+      name: House_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 12
-        height: 13
+        x: 112
+        y: 86
+        width: 32
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 942df23b68dba1a43b05e79d65317f81
-      internalID: 401964418
+      spriteID: e67a63303b8466a40a10cc96a0d40861
+      internalID: -602022073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_7
+      name: House_4
       rect:
         serializedVersion: 2
-        x: 22
-        y: 1
-        width: 5
-        height: 5
+        x: 148
+        y: 14
+        width: 72
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,19 +195,61 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5997c1e29d87de14c8af603b8cc825d4
-      internalID: -350924132
+      spriteID: dc16d53f02e762f48a1f028cd1cd1b71
+      internalID: 1274770148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_8
+      name: House_5
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 9
+        x: 81
+        y: 65
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c283f201b97626c45a383e34d5cd39b9
+      internalID: -1783023717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 65
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dbcff109ab25754caefecd3c2a96337
+      internalID: -53006962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: House_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 62
+        width: 16
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -279,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a7e9ade859d22f40a08be246378216e
-      internalID: -536404605
+      spriteID: 759c054c6447e0849bd17533e5fabaf8
+      internalID: -268275346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_9
+      name: House_8
       rect:
         serializedVersion: 2
-        x: 49
-        y: 0
+        x: 90
+        y: 18
         width: 13
-        height: 13
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,50 +279,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba2b3765a6d77545b121e02f0cdba20
-      internalID: -1078799800
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_10
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 0
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 76f5a0e1cc9fadb44b4c8f5a403efd01
-      internalID: -773919817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_11
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 2
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66ceb6c264da4064c82d1af4b5af06fb
-      internalID: -423579729
+      spriteID: 3d044676ee510f6429b9301070b8282e
+      internalID: -1831216212
       vertices: []
       indices: 
       edges: []
@@ -359,18 +296,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basic_Plants_0: -307273129
-      Basic_Plants_1: 1606259769
-      Basic_Plants_10: -773919817
-      Basic_Plants_11: -423579729
-      Basic_Plants_2: 656813783
-      Basic_Plants_3: -1467046660
-      Basic_Plants_4: 147284162
-      Basic_Plants_5: -1580224643
-      Basic_Plants_6: 401964418
-      Basic_Plants_7: -350924132
-      Basic_Plants_8: -536404605
-      Basic_Plants_9: -1078799800
+      House_0: -546601629
+      House_1: -1912913092
+      House_2: 1236691888
+      House_3: -602022073
+      House_4: 1274770148
+      House_5: -1783023717
+      House_6: -53006962
+      House_7: -268275346
+      House_8: -1831216212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
