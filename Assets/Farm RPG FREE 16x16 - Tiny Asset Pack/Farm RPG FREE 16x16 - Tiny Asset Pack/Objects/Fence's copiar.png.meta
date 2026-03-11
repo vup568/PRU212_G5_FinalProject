@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3629d32c2590a68408314dfd72dde5ad
+guid: da57249b2443e2b458734f53934b421b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Basic_Plants_0
+      name: Fence's copiar_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 17
-        width: 12
-        height: 13
+        x: 0
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2eb6d5e84f7f34649921c6c3439dce77
-      internalID: -307273129
+      spriteID: 11ce8a147add61649b479943b75017aa
+      internalID: 1636498036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_1
+      name: Fence's copiar_1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 17
-        width: 13
-        height: 8
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a47f1ce9dcdaf7a4389191c29fb5a5b1
-      internalID: 1606259769
+      spriteID: c32835322f832cf4ab614168e0214f6a
+      internalID: -517770590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_2
+      name: Fence's copiar_2
       rect:
         serializedVersion: 2
-        x: 33
-        y: 17
-        width: 15
-        height: 12
+        x: 32
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c07b56f25f8181e46936f7870398eac8
-      internalID: 656813783
+      spriteID: 8d05f491de87dd144a5fee349385a49a
+      internalID: -526530296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_3
+      name: Fence's copiar_3
       rect:
         serializedVersion: 2
-        x: 49
-        y: 17
-        width: 15
-        height: 14
+        x: 0
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35c617ae00886a246a611ed45fa52830
-      internalID: -1467046660
+      spriteID: 7511ba3ce0837b64cb71235c0ef9cfa8
+      internalID: -1595270247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_4
+      name: Fence's copiar_4
       rect:
         serializedVersion: 2
-        x: 65
-        y: 17
-        width: 15
-        height: 15
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09921aeef97944243995158229c515cb
-      internalID: 147284162
+      spriteID: 5245a8fcec1add34384a7ae4d68ef59e
+      internalID: 396101133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_5
+      name: Fence's copiar_5
       rect:
         serializedVersion: 2
-        x: 81
-        y: 17
-        width: 14
-        height: 14
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bdbac17ce1f6f2e4d915ef5ad2070491
-      internalID: -1580224643
+      spriteID: 9daa49cc064df5d4595bf75c5ae8be54
+      internalID: -753588863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_6
+      name: Fence's copiar_6
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 12
-        height: 13
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 942df23b68dba1a43b05e79d65317f81
-      internalID: 401964418
+      spriteID: f70dbe0770fac0444bcb9f272eec639f
+      internalID: 1684852082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_7
+      name: Fence's copiar_7
       rect:
         serializedVersion: 2
-        x: 22
-        y: 1
-        width: 5
-        height: 5
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5997c1e29d87de14c8af603b8cc825d4
-      internalID: -350924132
+      spriteID: eadd2dd67dcad5949812efd7ad915600
+      internalID: -1554417170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_8
+      name: Fence's copiar_8
       rect:
         serializedVersion: 2
-        x: 36
-        y: 1
-        width: 9
-        height: 9
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,20 +279,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a7e9ade859d22f40a08be246378216e
-      internalID: -536404605
+      spriteID: dd69516334eb1bb46af269db2ea8ae1a
+      internalID: -987821082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_9
+      name: Fence's copiar_9
       rect:
         serializedVersion: 2
-        x: 49
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d4f9176f1209d43ac01b89cedfa288
+      internalID: -1265421095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fence's copiar_10
+      rect:
+        serializedVersion: 2
+        x: 16
         y: 0
-        width: 13
-        height: 13
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ba2b3765a6d77545b121e02f0cdba20
-      internalID: -1078799800
+      spriteID: d573c6500a34d4a4a88afb019b7525db
+      internalID: -1769849414
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Basic_Plants_10
+      name: Fence's copiar_11
       rect:
         serializedVersion: 2
-        x: 65
+        x: 32
         y: 0
-        width: 14
-        height: 14
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,29 +342,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f5a0e1cc9fadb44b4c8f5a403efd01
-      internalID: -773919817
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Basic_Plants_11
-      rect:
-        serializedVersion: 2
-        x: 82
-        y: 2
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66ceb6c264da4064c82d1af4b5af06fb
-      internalID: -423579729
+      spriteID: fb20ff236cf77ea4ea681756701faae4
+      internalID: 1501891668
       vertices: []
       indices: 
       edges: []
@@ -359,18 +359,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Basic_Plants_0: -307273129
-      Basic_Plants_1: 1606259769
-      Basic_Plants_10: -773919817
-      Basic_Plants_11: -423579729
-      Basic_Plants_2: 656813783
-      Basic_Plants_3: -1467046660
-      Basic_Plants_4: 147284162
-      Basic_Plants_5: -1580224643
-      Basic_Plants_6: 401964418
-      Basic_Plants_7: -350924132
-      Basic_Plants_8: -536404605
-      Basic_Plants_9: -1078799800
+      Fence's copiar_0: 1636498036
+      Fence's copiar_1: -517770590
+      Fence's copiar_10: -1769849414
+      Fence's copiar_11: 1501891668
+      Fence's copiar_2: -526530296
+      Fence's copiar_3: -1595270247
+      Fence's copiar_4: 396101133
+      Fence's copiar_5: -753588863
+      Fence's copiar_6: 1684852082
+      Fence's copiar_7: -1554417170
+      Fence's copiar_8: -987821082
+      Fence's copiar_9: -1265421095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
