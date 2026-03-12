@@ -14,19 +14,16 @@ public class Users
 
     public int Gold { get; set; }
 
-    public int Diamond { get; set; }
-
     public int Level { get; set; }
 
     public Map MapInGame { get; set; }
 
 
 
-    public Users(string name, int gold, int diamond, Map mapInGame)
+    public Users(string name, int gold, Map mapInGame)
     {
         Name = name;
         Gold = gold;
-        Diamond = diamond;
         Level = 1;
         MapInGame = mapInGame;
     }

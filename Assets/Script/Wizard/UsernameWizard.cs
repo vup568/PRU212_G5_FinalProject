@@ -12,7 +12,6 @@ public class UsernameWizard : MonoBehaviour
     public Button buttonOk;
 
     public Text gold;
-    public Text diamond;
     public Text levelText;
 
     private FirebaseDatabaseManagement databaseManagement;
@@ -38,13 +37,17 @@ public class UsernameWizard : MonoBehaviour
     {
         LoadDataManager.OnUserDataLoaded -= CheckAndDisplayUI;
         LevelManager.OnLevelUp -= OnLevelUp;
+        TutorialManager.OnTutorialCompleted -= OnTutorialCompleted;
     }
 
     private void CheckAndDisplayUI()
     {
         if(LoadDataManager.userInGame.Name == "")
         {
-            usernameWizard.SetActive(true);
+            // Người chơi mới: KHÔNG hiện wizard ngay, đợi tutorial hoàn thành
+            usernameWizard.SetActive(false);
+            TutorialManager.OnTutorialCompleted += OnTutorialCompleted;
+            Debug.Log("[UsernameWizard] Người chơi mới, đợi tutorial hoàn thành để hiện ô nhập tên.");
         }
         else
         {
@@ -53,11 +56,20 @@ public class UsernameWizard : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Được gọi khi tutorial hoàn thành → hiện wizard nhập tên.
+    /// </summary>
+    private void OnTutorialCompleted()
+    {
+        TutorialManager.OnTutorialCompleted -= OnTutorialCompleted;
+        Debug.Log("[UsernameWizard] Tutorial hoàn thành! Hiện ô nhập tên.");
+        usernameWizard.SetActive(true);
+    }
+
     private void UpdateAllUI()
     {
         username.text = LoadDataManager.userInGame.Name;
         gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
-        diamond.text = "Diamond: " + LoadDataManager.userInGame.Diamond.ToString();
 
         // Hiển thị level
         if (levelText != null)

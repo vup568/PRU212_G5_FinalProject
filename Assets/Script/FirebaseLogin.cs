@@ -79,7 +79,7 @@ public class FirebaseLogin : MonoBehaviour
 
                 Map mapInGame = new Map();
 
-                Users userInGame = new Users("", 100, 50, mapInGame);
+                Users userInGame = new Users("", 100, mapInGame);
 
                 FirebaseUser firebaseUser = task.Result.User;
 

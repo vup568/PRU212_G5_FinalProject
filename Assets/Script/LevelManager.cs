@@ -46,6 +46,13 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void CheckLevelUp()
     {
+        // Không lên level trong chế độ Sandbox
+        if (GameCompletionManager.IsSandboxMode)
+        {
+            Debug.Log("[LevelManager] Đang ở chế độ Sandbox, bỏ qua level up.");
+            return;
+        }
+
         if (LoadDataManager.userInGame == null)
         {
             Debug.LogWarning("[LevelManager] userInGame is null! Không thể kiểm tra level.");
@@ -76,6 +83,11 @@ public class LevelManager : MonoBehaviour
         {
             LoadDataManager.userInGame.Level = newLevel;
             Debug.Log($"[LevelManager] 🎉 Lên Level {newLevel}! (Gold: {currentGold})");
+
+            // Phát âm thanh lên level
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager != null)
+                audioManager.PlayLevelUpSound();
 
             // Lưu lên Firebase
             SaveToFirebase();

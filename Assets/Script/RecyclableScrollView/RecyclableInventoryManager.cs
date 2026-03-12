@@ -63,6 +63,12 @@ public class RecyclableInventoryManager : MonoBehaviour, IRecyclableScrollRectDa
         }
         SetListItem(listItem);
         _recyclableScrollRect.ReloadData();
+
+        // Ẩn kho đồ mặc định khi vào game (nhấn T để mở)
+        if (inventoryGameObject != null)
+        {
+            inventoryGameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 1000, 0);
+        }
     }
 
     private Sprite MakeSolidSprite(Color color)
