@@ -12,7 +12,6 @@ public class UsernameWizard : MonoBehaviour
     public Button buttonOk;
 
     public Text gold;
-    public Text diamond;
     public Text levelText;
 
     private FirebaseDatabaseManagement databaseManagement;
@@ -57,7 +56,6 @@ public class UsernameWizard : MonoBehaviour
     {
         username.text = LoadDataManager.userInGame.Name;
         gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
-        diamond.text = "Diamond: " + LoadDataManager.userInGame.Diamond.ToString();
 
         // Hiển thị level
         if (levelText != null)

@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip winClip;
     public AudioClip collectTree;
     public AudioClip digClip; // âm thanh đào đất
+    public AudioClip levelUpClip; // âm thanh lên level
 
     void Start()
     {
@@ -32,6 +33,14 @@ public class AudioManager : MonoBehaviour
     {
         vfxAudioSource.pitch = Random.Range(0.9f, 1.1f);
         vfxAudioSource.PlayOneShot(collectTree);
+    }
+
+    // âm thanh lên level
+    public void PlayLevelUpSound()
+    {
+        if (levelUpClip == null) return;
+        vfxAudioSource.pitch = 1f;
+        vfxAudioSource.PlayOneShot(levelUpClip);
     }
 
 }

@@ -77,6 +77,11 @@ public class LevelManager : MonoBehaviour
             LoadDataManager.userInGame.Level = newLevel;
             Debug.Log($"[LevelManager] 🎉 Lên Level {newLevel}! (Gold: {currentGold})");
 
+            // Phát âm thanh lên level
+            AudioManager audioManager = FindObjectOfType<AudioManager>();
+            if (audioManager != null)
+                audioManager.PlayLevelUpSound();
+
             // Lưu lên Firebase
             SaveToFirebase();
 
