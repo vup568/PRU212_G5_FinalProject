@@ -66,6 +66,12 @@ public class GoldManager : MonoBehaviour
         {
             LevelManager.Instance.CheckLevelUp();
         }
+
+        // Kiểm tra phá đảo (300 Gold)
+        if (GameCompletionManager.Instance != null)
+        {
+            GameCompletionManager.Instance.CheckGameCompletion();
+        }
     }
 
     public int GetCurrentGold()
