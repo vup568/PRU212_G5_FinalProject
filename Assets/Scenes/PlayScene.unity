@@ -990,7 +990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "X\xE2y d\u1EF1ng"
+  m_Text: "N\xE2ng c\u1EA5p"
 --- !u!222 &124678956
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1753,6 +1753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327356371}
   - component: {fileID: 327356372}
+  - component: {fileID: 327356373}
   m_Layer: 0
   m_Name: HouseLevel2
   m_TagString: Untagged
@@ -1777,6 +1778,51 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &327356372
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327356370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &327356373
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -21776,11 +21822,12 @@ MonoBehaviour:
         c\xE0 chua b\u1EB1ng c\xE1ch nh\u1EA5m ph\xEDm ( B )  nh\xE9!"
     - playerPortrait: {fileID: 21300000, guid: 21ae12909dfa64464820da55fc494021, type: 3}
       dialogueText: "B\u1EA1n c\u0169ng c\xF3 th\u1EC3 n\xE2ng c\u1EA5p ng\xF4i nh\xE0
-        c\u1EE7a m\xECnh b\u1EB1ng c\xE1ch nh\u1EA5n v\xE0o n\xFAt \"X\xE2y d\u1EF1ng\"
+        c\u1EE7a m\xECnh b\u1EB1ng c\xE1ch nh\u1EA5n v\xE0o n\xFAt \"N\xE2ng c\u1EA5p\"
         nh\xE9!"
     - playerPortrait: {fileID: 21300000, guid: 21ae12909dfa64464820da55fc494021, type: 3}
-      dialogueText: "H\xE3y c\u1ED1 g\u1EAFng l\xEAn b\u1EA1n s\u1EAFp ph\xE1 \u0111\u1EA3o
-        r\u1ED3i \u0111\xF3 <3"
+      dialogueText: "H\xE3y c\u1ED1 g\u1EAFng l\xEAn ch\u1EC9 c\u1EA7n \u0111\u1EA1t
+        \u0111\u1EE7 300 v\xE0ng l\xE0 b\u1EA1n ph\xE1 \u0111\u1EA3o r\u1ED3i \u0111\xF3
+        <3"
 --- !u!1 &1035238439
 GameObject:
   m_ObjectHideFlags: 0
@@ -22621,6 +22668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1251670515}
   - component: {fileID: 1251670516}
+  - component: {fileID: 1251670517}
   m_Layer: 0
   m_Name: House_4
   m_TagString: Untagged
@@ -22695,6 +22743,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1251670517
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251670514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.5, y: 5.9375}
+    newSize: {x: 4.5, y: 5.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.5, y: 5.9375}
+  m_EdgeRadius: 0
 --- !u!1 &1284923680
 GameObject:
   m_ObjectHideFlags: 0

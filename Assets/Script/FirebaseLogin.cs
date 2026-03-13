@@ -88,8 +88,8 @@ public class FirebaseLogin : MonoBehaviour
                 string jsonData = JsonConvert.SerializeObject(userInGame);
                 databaseManagement.WriteDatabase("Users/" + firebaseUser.UserId, jsonData);
 
-                LoadingManager.NEXT_SCENE = "PlayScene";
-                SceneManager.LoadScene("FakeLoading");
+                //LoadingManager.NEXT_SCENE = "PlayScene";
+               // SceneManager.LoadScene("FakeLoading");
 
                 
 
