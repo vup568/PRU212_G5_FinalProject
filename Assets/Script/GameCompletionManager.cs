@@ -115,6 +115,10 @@ public class GameCompletionManager : MonoBehaviour
     {
         if (completionPanel == null || canvasGroup == null) return;
 
+        // Phát âm thanh phá đảo
+        var audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager != null) audioManager.PlayGameCompleteSound();
+
         // Dừng fade cũ nếu đang chạy
         if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
 

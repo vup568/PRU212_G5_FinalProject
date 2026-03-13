@@ -896,10 +896,13 @@ MonoBehaviour:
   vfxAudioSource: {fileID: 131073505}
   musicClip: {fileID: 8300000, guid: fcc19b04c16a61744933f11c9f90224f, type: 3}
   coinClip: {fileID: 8300000, guid: de73d6c771031894f83c76c13490198d, type: 3}
-  winClip: {fileID: 0}
+  winClip: {fileID: 8300000, guid: 74cf6e960ae30ae428014443f2fd14b9, type: 3}
   collectTree: {fileID: 8300000, guid: f062e983b75ed1849a7f5ce2c0973d7f, type: 3}
   digClip: {fileID: 8300000, guid: 3a492fd0618ee9049bfa051af1853e6b, type: 3}
   levelUpClip: {fileID: 8300000, guid: 92ffcc2ad05261e47b5fd057902cab68, type: 3}
+  plantClip: {fileID: 8300000, guid: 8c953aded527fd64c9f91aea04aa555a, type: 3}
+  buildHouseClip: {fileID: 8300000, guid: 97e34b4d0b9014b448f6563084c5fcb6, type: 3}
+  gameCompleteClip: {fileID: 8300000, guid: 74cf6e960ae30ae428014443f2fd14b9, type: 3}
 --- !u!4 &93170187
 Transform:
   m_ObjectHideFlags: 0

@@ -95,6 +95,7 @@ public class PlayerFarmController : MonoBehaviour
             {
                 //tm_Forest.SetTile(cellPos, tb_Forest);
                 StartCoroutine(GrowPlantWithCustomTime(cellPos, tm_Forest, listTilebase_Corn, cornGrowTime));
+                FindObjectOfType<AudioManager>().PlayPlantSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Corn);
 
             }
@@ -126,6 +127,7 @@ public class PlayerFarmController : MonoBehaviour
             if (currentTb == null && currentForest == null && !growingTiles.Contains(cellPos))
             {
                 StartCoroutine(GrowPlantWithCustomTime(cellPos, tm_Forest, listTilebase_Flower, flowerGrowTime));
+                FindObjectOfType<AudioManager>().PlayPlantSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Flower);
             }
             else

@@ -136,6 +136,10 @@ public class HouseManager : MonoBehaviour
     /// </summary>
     private IEnumerator BuildHouseRoutine()
     {
+        // 0. Phát âm thanh xây nhà
+        var audioManager = FindObjectOfType<AudioManager>();
+        if (audioManager != null) audioManager.PlayBuildHouseSound();
+
         // 1. Hiện UI Panel "Đang thi công..."
         if (constructionPanel != null) 
         {

@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip collectTree;
     public AudioClip digClip; // âm thanh đào đất
     public AudioClip levelUpClip; // âm thanh lên level
+    public AudioClip plantClip; // âm thanh trồng cây/hoa
+    public AudioClip buildHouseClip; // âm thanh xây nhà
+    public AudioClip gameCompleteClip; // âm thanh phá đảo
 
     void Start()
     {
@@ -41,6 +44,30 @@ public class AudioManager : MonoBehaviour
         if (levelUpClip == null) return;
         vfxAudioSource.pitch = 1f;
         vfxAudioSource.PlayOneShot(levelUpClip);
+    }
+
+    // âm thanh trồng cây
+    public void PlayPlantSound()
+    {
+        if (plantClip == null) return;
+        vfxAudioSource.pitch = Random.Range(0.9f, 1.1f);
+        vfxAudioSource.PlayOneShot(plantClip);
+    }
+
+    // âm thanh xây nhà
+    public void PlayBuildHouseSound()
+    {
+        if (buildHouseClip == null) return;
+        vfxAudioSource.pitch = 1f;
+        vfxAudioSource.PlayOneShot(buildHouseClip);
+    }
+
+    // âm thanh phá đảo
+    public void PlayGameCompleteSound()
+    {
+        if (gameCompleteClip == null) return;
+        vfxAudioSource.pitch = 1f;
+        vfxAudioSource.PlayOneShot(gameCompleteClip);
     }
 
 }
