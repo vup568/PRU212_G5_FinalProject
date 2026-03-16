@@ -61,6 +61,10 @@ public class GoldManager : MonoBehaviour
             wizard.gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
         }
 
+        // Report quest progress: Bán hàng kiếm Gold
+        if (QuestManager.Instance != null)
+            QuestManager.Instance.ReportProgress(QuestType.SellGold, amount);
+
         // Kiểm tra level up
         if (LevelManager.Instance != null)
         {
@@ -72,6 +76,42 @@ public class GoldManager : MonoBehaviour
         {
             GameCompletionManager.Instance.CheckGameCompletion();
         }
+    }
+
+    /// <summary>
+    /// Trừ gold khi mua hạt giống. Trả về true nếu đủ gold.
+    /// </summary>
+    public bool SpendGold(int amount)
+    {
+        if (LoadDataManager.userInGame == null) return false;
+        if (LoadDataManager.userInGame.Gold < amount) return false;
+
+        LoadDataManager.userInGame.Gold -= amount;
+        Debug.Log($"[GoldManager] Đã trừ {amount} Gold. Còn lại: {LoadDataManager.userInGame.Gold}");
+
+        // Lưu lên Firebase
+        string userId = firebaseUser != null ? firebaseUser.UserId : LoadDataManager.firebaseUser?.UserId;
+        if (!string.IsNullOrEmpty(userId))
+        {
+            string jsonData = JsonConvert.SerializeObject(LoadDataManager.userInGame);
+            reference.Child("Users").Child(userId).SetRawJsonValueAsync(jsonData)
+                .ContinueWithOnMainThread(task =>
+                {
+                    if (task.IsCompleted)
+                        Debug.Log("[GoldManager] Lưu Gold (spend) lên Firebase thành công!");
+                    else
+                        Debug.LogWarning("[GoldManager] Lưu Gold (spend) thất bại: " + task.Exception);
+                });
+        }
+
+        // Cập nhật UI Gold
+        UsernameWizard wizard = FindObjectOfType<UsernameWizard>();
+        if (wizard != null && wizard.gold != null)
+        {
+            wizard.gold.text = "Gold: " + LoadDataManager.userInGame.Gold.ToString();
+        }
+
+        return true;
     }
 
     public int GetCurrentGold()

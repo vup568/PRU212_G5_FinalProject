@@ -54,6 +54,62 @@ public class PlayerFarmController : MonoBehaviour
     {
         recyclableInventoryManager = GameObject.Find("InventoryManager").GetComponent<RecyclableInventoryManager>();
 
+        // Đăng ký event thời tiết để xử lý Bão phá hủy cây đã mọc xong
+        if (WeatherManager.Instance != null)
+            WeatherManager.Instance.OnWeatherChanged += OnWeatherChanged;
+    }
+
+    void OnDestroy()
+    {
+        if (WeatherManager.Instance != null)
+            WeatherManager.Instance.OnWeatherChanged -= OnWeatherChanged;
+    }
+
+    /// <summary>
+    /// Khi thời tiết thay đổi — nếu là Bão, quét tất cả cây trên map.
+    /// </summary>
+    private void OnWeatherChanged(WeatherManager.WeatherType newWeather)
+    {
+        if (newWeather == WeatherManager.WeatherType.Storm)
+        {
+            OnStormHit();
+        }
+    }
+
+    /// <summary>
+    /// Bão ập đến: mỗi cây (đang mọc + đã mọc xong) có 20% bị phá hủy.
+    /// </summary>
+    private void OnStormHit()
+    {
+        if (growingTiles.Count == 0) return;
+
+        float killChance = WeatherManager.Instance != null ? WeatherManager.Instance.GetStormKillChance() : 0.2f;
+        List<Vector3Int> tilesToKill = new List<Vector3Int>();
+
+        foreach (Vector3Int cellPos in growingTiles)
+        {
+            if (Random.value < killChance)
+            {
+                tilesToKill.Add(cellPos);
+            }
+        }
+
+        foreach (Vector3Int cellPos in tilesToKill)
+        {
+            tm_Forest.SetTile(cellPos, null);
+            growingTiles.Remove(cellPos);
+            tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
+            Debug.Log($"[Weather] ⛈️ Bão đã phá hủy cây tại {cellPos}!");
+        }
+
+        if (tilesToKill.Count > 0)
+        {
+            SeedShopUI shopUI = FindObjectOfType<SeedShopUI>();
+            if (shopUI != null)
+                shopUI.ShowNotification($"⛈️ Bão phá hủy {tilesToKill.Count} cây!", 3f);
+
+            Debug.Log($"[Weather] ⛈️ Tổng cộng {tilesToKill.Count}/{growingTiles.Count + tilesToKill.Count} cây bị phá hủy!");
+        }
     }
 
     // Update is called once per frame
@@ -79,11 +135,14 @@ public class PlayerFarmController : MonoBehaviour
                 FindObjectOfType<AudioManager>().PlayDigSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
 
+                // Report quest progress: Đào đất
+                if (QuestManager.Instance != null)
+                    QuestManager.Instance.ReportProgress(QuestType.DigTiles, 1);
             }
 
         }
 
-        //Plant Corn (Level 1)
+        //Plant Corn (Level 1) - YÊU CẦU CÓ SEED
         if (Input.GetKeyDown(KeyCode.V))
         {
             Vector3Int cellPos = tm_Ground.WorldToCell(transform.position); //take precise location of player with integer location
@@ -93,11 +152,22 @@ public class PlayerFarmController : MonoBehaviour
             TileBase currentForest = tm_Forest.GetTile(cellPos);
             if (currentTb == null && currentForest == null && !growingTiles.Contains(cellPos))
             {
-                //tm_Forest.SetTile(cellPos, tb_Forest);
+                // Kiểm tra seed trước khi trồng
+                if (SeedShopManager.Instance == null || !SeedShopManager.Instance.UseSeed("Corn"))
+                {
+                    Debug.Log("[PlayerFarm] Hết hạt Ngô! Hãy mua thêm tại cửa hàng (nhấn P).");
+                    SeedShopUI shopUI = FindObjectOfType<SeedShopUI>();
+                    if (shopUI != null) shopUI.ShowNotification("Hết hạt Ngô! Nhấn P để mua.");
+                    return;
+                }
+
                 StartCoroutine(GrowPlantWithCustomTime(cellPos, tm_Forest, listTilebase_Corn, cornGrowTime));
                 FindObjectOfType<AudioManager>().PlayPlantSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Corn);
 
+                // Report quest progress: Trồng cây (Corn)
+                if (QuestManager.Instance != null)
+                    QuestManager.Instance.ReportProgress(QuestType.PlantAny, 1);
             }
         }
 
@@ -126,9 +196,25 @@ public class PlayerFarmController : MonoBehaviour
             TileBase currentForest = tm_Forest.GetTile(cellPos);
             if (currentTb == null && currentForest == null && !growingTiles.Contains(cellPos))
             {
+                // Kiểm tra seed trước khi trồng
+                if (SeedShopManager.Instance == null || !SeedShopManager.Instance.UseSeed("Flower"))
+                {
+                    Debug.Log("[PlayerFarm] Hết hạt Hoa! Hãy mua thêm tại cửa hàng (nhấn P).");
+                    SeedShopUI shopUI = FindObjectOfType<SeedShopUI>();
+                    if (shopUI != null) shopUI.ShowNotification("Hết hạt Hoa! Nhấn P để mua.");
+                    return;
+                }
+
                 StartCoroutine(GrowPlantWithCustomTime(cellPos, tm_Forest, listTilebase_Flower, flowerGrowTime));
                 FindObjectOfType<AudioManager>().PlayPlantSound();
                 tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Flower);
+
+                // Report quest progress: Trồng cây (Flower) + Trồng cây bất kỳ
+                if (QuestManager.Instance != null)
+                {
+                    QuestManager.Instance.ReportProgress(QuestType.PlantAny, 1);
+                    QuestManager.Instance.ReportProgress(QuestType.PlantFlower, 1);
+                }
             }
             else
             {
@@ -157,7 +243,11 @@ public class PlayerFarmController : MonoBehaviour
 
                 recyclableInventoryManager.AddInventoryItem(itemCorn);
                 FindObjectOfType<AudioManager>().PlayCollectSound();
-                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
+
+                // Report quest progress: Thu hoạch Corn
+                if (QuestManager.Instance != null)
+                    QuestManager.Instance.ReportProgress(QuestType.HarvestCorn, 1);
             }
             // Thu hoạch Flower (giai đoạn cuối cùng)
             else if (listTilebase_Flower != null && listTilebase_Flower.Count > 0 
@@ -173,13 +263,20 @@ public class PlayerFarmController : MonoBehaviour
 
                 recyclableInventoryManager.AddInventoryItem(itemFlower);
                 FindObjectOfType<AudioManager>().PlayCollectSound();
-                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Grass);
+
+                // Report quest progress: Thu hoạch Flower
+                if (QuestManager.Instance != null)
+                    QuestManager.Instance.ReportProgress(QuestType.HarvestFlower, 1);
             }
         }
     }
 
     /// <summary>
     /// Coroutine mọc cây với thời gian tùy chỉnh cho mỗi giai đoạn.
+    /// Áp dụng hiệu ứng thời tiết mỗi stage:
+    /// - Mưa: mọc nhanh x1.5
+    /// - Bão: 20% cây chết
     /// </summary>
     IEnumerator GrowPlantWithCustomTime(Vector3Int cellPos, Tilemap tilemap, List<TileBase> listTilebase, float growTimePerStage)
     {
@@ -188,7 +285,30 @@ public class PlayerFarmController : MonoBehaviour
         while(currentState < listTilebase.Count)
         {
             tilemap.SetTile(cellPos, listTilebase[currentState]);
-            yield return new WaitForSeconds(growTimePerStage);
+
+            // Lấy tốc độ mọc theo thời tiết hiện tại
+            float multiplier = WeatherManager.Instance != null ? WeatherManager.Instance.GetGrowthMultiplier() : 1f;
+            float actualGrowTime = growTimePerStage / multiplier;
+
+            yield return new WaitForSeconds(actualGrowTime);
+
+            // Bão: kiểm tra cây có bị chết không
+            float killChance = WeatherManager.Instance != null ? WeatherManager.Instance.GetStormKillChance() : 0f;
+            if (killChance > 0f && Random.value < killChance)
+            {
+                // Cây bị bão phá hủy!
+                tilemap.SetTile(cellPos, null);
+                growingTiles.Remove(cellPos);
+                tileMapManager.SetStateForTilemapDetail(cellPos.x, cellPos.y, TilemapState.Ground);
+                Debug.Log($"[Weather] ⛈️ Bão đã phá hủy cây tại {cellPos}!");
+
+                // Thông báo cho người chơi
+                SeedShopUI shopUI = FindObjectOfType<SeedShopUI>();
+                if (shopUI != null) shopUI.ShowNotification("⛈️ Bão đã phá hủy cây!", 2f);
+
+                yield break; // Dừng coroutine - cây đã chết
+            }
+
             currentState++;
         }
         // Cây đã mọc xong, không remove khỏi growingTiles ở đây

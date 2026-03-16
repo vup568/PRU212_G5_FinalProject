@@ -8,6 +8,7 @@ public class Users
     public Users()
     {
         Level = 1;
+        Gold = 50; // Người chơi mới bắt đầu với 50 Gold để mua hạt giống
     }
 
     public string Name { get; set; }
